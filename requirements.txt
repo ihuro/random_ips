@@ -1,5 +1,3 @@
-docopt
+hug
 ipcalc
-schema
-six
 tabulate
