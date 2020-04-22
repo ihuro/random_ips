@@ -1,0 +1,31 @@
+version: "3"
+
+services:
+  app:
+    build: .
+    container_name: random_ips_generator
+    restart: always
+    ports:
+      - "8000:8000"
+    networks:
+      - rig_network
+    command:
+      "gunicorn --workers=2 --bind=0.0.0.0:8000 ips:__hug_wsgi__"
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx_web_server
+    ports:
+      - "80:80"
+    networks:
+      - rig_network
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+    depends_on:
+      - app
+
+networks:
+  rig_network:
+   ipam:
+      config:
+      - subnet: 172.16.238.0/24
