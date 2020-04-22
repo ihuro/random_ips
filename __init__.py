@@ -17,7 +17,7 @@ from schema import (
 from docopt import docopt
 from tabulate import tabulate
 
-from .ips import generate_random_ips
+from ips import generate_random_ips
 
 
 def main():
