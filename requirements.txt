@@ -1,3 +1,5 @@
+gunicorn
 hug
 ipcalc
+six
 tabulate
