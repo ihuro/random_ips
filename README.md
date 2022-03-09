@@ -12,11 +12,21 @@ Random IP addresses generator
 
 #### Execute command
 
-    python ips.py -h
+    python random_ips/api.py -h
+
+##### Docker
+
+    docker build -t random_ips:latest .
+    docker run --rm random_ips_app:latest cmd -q 10  # command line output
 
 ### Web API
 
 #### Docker
+
+    docker build -t random_ips:latest .
+    docker run --rm random_ips_app:latest web        # web API
+
+#### Docker Compose
 
 > Install docker and docker-compose https://docs.docker.com/compose/install/
 
@@ -26,4 +36,4 @@ Random IP addresses generator
 #### Run local
 
     pip install -r requirements.txt
-    hug -f ips.py
+    hug -f random_ips/api.py
