@@ -1,14 +1,3 @@
-"""Generate Random IP addresses
-
-This script will generate random IP addresses and get related network information.
-
-Usage:
-  ips [--quantity=<qty>]
-
-Options:
-  -h, --help        Show this help message
-  --quantity=<qty>  Amount of IP addresses to generate [default: 5].
-"""
 from ipaddress import IPv4Address
 from random import (
     getrandbits,
@@ -17,13 +6,14 @@ from random import (
 
 import hug
 from ipcalc import IP
-from tabulate import tabulate
+
+DEFAULT_QUANTITY = 5
 
 
 @hug.local()
-def generate_random_ips(quantity: hug.types.number = 5):
+def generate_random_ips(quantity: hug.types.number = DEFAULT_QUANTITY):
     """
-    Return a listo random IP addresses.
+    Return a list of random IP addresses.
 
     Params:
         quantity (int): amount of IP to generate
@@ -57,23 +47,3 @@ def generate_random_ips(quantity: hug.types.number = 5):
         ])
 
     return ips
-
-
-@hug.cli()
-@hug.get('/random_ips', output=hug.output_format.text)
-@hug.get('/random_ips/{quantity}', output=hug.output_format.text)
-def generate(quantity: hug.types.number = 5):
-    """
-    Main script logic
-    """
-    ip_addresses = generate_random_ips(quantity)
-    ips_table = tabulate(
-        ip_addresses,
-        headers="firstrow"
-    )
-
-    return ips_table
-
-
-if __name__ == '__main__':
-    generate.interface.cli()
