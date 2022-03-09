@@ -27,9 +27,9 @@ from output import (
 
 @hug.cli()
 @hug.get('/random_ips', output=hug.output_format.html)
-@hug.get('/random_ips/json', output=hug.output_format.json)
+@hug.get('/random_ips/json', output=hug.output_format.pretty_json)
 @hug.get('/random_ips/{quantity}', output=hug.output_format.html)
-@hug.get('/random_ips/{quantity}/json', output=hug.output_format.json)
+@hug.get('/random_ips/{quantity}/json', output=hug.output_format.pretty_json)
 def generate(response = None, quantity: hug.types.number = DEFAULT_QUANTITY):
     """
     Main script logic
