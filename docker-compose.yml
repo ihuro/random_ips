@@ -10,7 +10,7 @@ services:
     networks:
       - rig_network
     command:
-      "gunicorn --workers=2 --bind=0.0.0.0:8000 ips:__hug_wsgi__"
+      "web"
 
   nginx:
     image: nginx:latest
