@@ -12,5 +12,5 @@ WORKDIR ${APP_ROOT}
 
 ADD random_ips/ ${APP_ROOT}
 
-COPY docker_entrypoint.sh /
-ENTRYPOINT ["/docker_entrypoint.sh"]
+COPY docker-entrypoint.sh /
+ENTRYPOINT ["/docker-entrypoint.sh"]
