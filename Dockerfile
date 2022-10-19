@@ -1,4 +1,4 @@
-FROM python:3.8
+FROM python:3
 
 ENV APP_ROOT /src
 ENV CONFIG_ROOT /config

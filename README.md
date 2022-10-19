@@ -9,7 +9,7 @@ The idea is to generate random IP address information to use as examples of netw
 ##### Text command line
 
     $ python random_ips/api.py -q 3
-    
+
     IP               Network         Netmask Decimal      Netmask Bits  Broadcast        Host min        Host max
     ---------------  --------------  -----------------  --------------  ---------------  --------------  ---------------
     255.158.41.235   255.158.41.192  255.255.255.192                26  255.158.41.255   255.158.41.193  255.158.41.254
@@ -19,7 +19,7 @@ The idea is to generate random IP address information to use as examples of netw
 ##### Web API (JSON)
 
     $ curl http://127.0.0.1:8000/random_ips/2/json
-    
+
     [
         {
             "IP": "128.218.135.198",
@@ -48,12 +48,12 @@ The idea is to generate random IP address information to use as examples of netw
 #### From source
 
 * Install requirements
-    
-  `pip install -r requirements.txt`
-    
+
+    `pip install -r requirements.txt`
+
 * Execute script
-    
-  `python random_ips/api.py -h`
+
+    `python random_ips/api.py -h`
 
 #### Using Docker
 
@@ -66,15 +66,29 @@ The idea is to generate random IP address information to use as examples of netw
 
 #### Run from source
 
-    pip install -r requirements.txt
-    hug -f random_ips/api.py
+* Install requirements
+
+    `pip install -r requirements.txt`
+
+* Execute web API
+
+    `hug -f random_ips/api.py`
 
 #### Docker
 
-    docker build -t random_ips_app:latest .
-    docker run --rm random_ips_app:latest web
+* Build image
 
-#### Docker Compose
+    `docker build -t random_ips_app:latest .`
+
+* Execute web API
+
+    `docker run --rm random_ips_app:latest web`
+
+* Execute command line
+
+    `docker run --rm random_ips_app:latest cmd -q 10`
+
+#### Docker Compose for web API
 
 > Install docker and docker-compose https://docs.docker.com/compose/install/
 
